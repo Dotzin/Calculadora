@@ -22,86 +22,89 @@ let entrada = document.getElementById("Entrada");
 let display = document.getElementById("display");
 
 botao1.onclick = () => {
-  entrada.innerText += "1";
+  display.innerText += "1";
   console.log("botao1 clicked");
 };
 botaoPorc.onclick = () => {
-  entrada.innerText += "%";
+  display.innerText += "%";
   console.log("botaoPorc clicked");
 };
 
 botaoCE.onclick = () => {
-  entrada.innerText = entrada.innerText.slice(0, -1);
+  display.innerText = display.innerText.slice(0, -1);
   console.log("botaoCE clicked");
 };
 
 botaoC.onclick = () => {
-  entrada.innerText = "";
+  display.innerText = "";
   console.log("botaoC clicked");
 };
 
 botaoApagar.onclick = () => {
-  entrada.innerText = entrada.innerText.slice(0, -1);
+  display.innerText = display.innerText.slice(0, -1);
   console.log("botaoApagar clicked");
 };
 
 botao7.onclick = () => {
-  entrada.innerText += "7";
+  display.innerText += "7";
   console.log("botao7 clicked");
 };
 
 botao8.onclick = () => {
-  entrada.innerText += "8";
+  display.innerText += "8";
   console.log("botao8 clicked");
 };
 
 botao9.onclick = () => {
-  entrada.innerText += "9";
+  display.innerText += "9";
   console.log("botao9 clicked");
 };
 
 botaoMulti.onclick = () => {
-  entrada.innerText += "*";
+  entrada.innerText += display.innerText + "*";
+  display.innerText = "";
   console.log("botaoMulti clicked");
 };
 
 botao14.onclick = () => {
-  entrada.innerText += "4";
-  console.log("botao14 clicked");
+  display.innerText += "4";
+  console.log("botao4 clicked");
 };
 
 botao15.onclick = () => {
-  entrada.innerText += "5";
-  console.log("botao15 clicked");
+  display.innerText += "5";
+  console.log("botao5 clicked");
 };
 
 botao16.onclick = () => {
-  entrada.innerText += "6";
-  console.log("botao16 clicked");
+  display.innerText += "6";
+  console.log("botao6 clicked");
 };
 
 botaoMenos.onclick = () => {
-  entrada.innerText += "-";
+  entrada.innerText += display.innerText + "-";
+  display.innerText = "";
   console.log("botaoMenos clicked");
 };
 
 botao1.onclick = () => {
-  entrada.innerText += "1";
+  display.innerText += "1";
   console.log("botao1 clicked");
 };
 
 botao2.onclick = () => {
-  entrada.innerText += "2";
+  display.innerText += "2";
   console.log("botao2 clicked");
 };
 
 botao3.onclick = () => {
-  entrada.innerText += "3";
+  display.innerText += "3";
   console.log("botao3 clicked");
 };
 
 botaoSoma.onclick = () => {
-  entrada.innerText += "+";
+  entrada.innerText += display.innerText + "+";
+  display.innerText = "";
   console.log("botaoSoma clicked");
 };
 
@@ -110,13 +113,20 @@ botaoSinais.onclick = () => {
 };
 
 botao0.onclick = () => {
-  entrada.innerText += "0";
+  display.innerText += "0";
   console.log("botao0 clicked");
 };
 
 botaoVirg.onclick = () => {
-  if (!entrada.innerText.includes(".")) {
-    entrada.innerText += ".";
+  if (!display.innerText.includes(".")) {
+    display.innerText += ".";
   }
   console.log("botaoVirg clicked");
+};
+botaoIgual.onclick = () => {
+  entrada.innerText += display.innerText;
+  let resultado = eval(entrada.innerText);
+  entrada.innerText = "";
+  display.innerText = resultado;
+  console.log("botaoSoma Igual");
 };
