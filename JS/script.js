@@ -1,133 +1,42 @@
-const botaoPorc = document.getElementById("botaoPorc");
-const botaoCE = document.getElementById("botaoCE");
-const botaoC = document.getElementById("botaoC");
-const botaoApagar = document.getElementById("botaoApagar");
-const botao7 = document.getElementById("botao7");
-const botao8 = document.getElementById("botao8");
-const botao9 = document.getElementById("botao9");
-const botaoMulti = document.getElementById("botaoMulti");
-const botao14 = document.getElementById("botao4");
-const botao15 = document.getElementById("botao5");
-const botao16 = document.getElementById("botao6");
-const botaoMenos = document.getElementById("botaoMenos");
-const botao1 = document.getElementById("botao1");
-const botao2 = document.getElementById("botao2");
-const botao3 = document.getElementById("botao3");
-const botaoSoma = document.getElementById("botaoSoma");
-const botaoSinais = document.getElementById("botaoSinais");
-const botao0 = document.getElementById("botao0");
-const botaoVirg = document.getElementById("botaoVirg");
-const botaoIgual = document.getElementById("botaoIgual");
-let entrada = document.getElementById("Entrada");
-let display = document.getElementById("display");
+const Botoes = document.querySelectorAll(".btnnumero");
+const Display = document.querySelector("#Display");
+const Entrada = document.querySelector("#Entrada");
+const operacoes = document.querySelectorAll(".ope");
+Botoes.forEach((botao) => {
+  botao.addEventListener("click", () => {
+    Entrada.innerText += botao.textContent;
+  });
+});
+operacoes.forEach((botao) => {
+  botao.addEventListener("click", () => {
+    if (Entrada.innerText === "" && botao.innerText !== "-") return;
 
-botao1.onclick = () => {
-  display.innerText += "1";
-  console.log("botao1 clicked");
+    const lastChar = Entrada.innerText.slice(-1);
+    if (["+", "-", "*", "/"].includes(lastChar)) {
+      Entrada.innerText = Entrada.innerText.slice(0, -1) + botao.innerText;
+    } else {
+      Display.innerText += Entrada.innerText + botao.innerText;
+      Entrada.innerText = "";
+    }
+  });
+});
+document.getElementById("botaoPorc").onclick = () => {
+  Entrada.innerText = Entrada.innerText / 100;
 };
-botaoPorc.onclick = () => {
-  display.innerText = display.innerText / 100;
-  console.log("botaoPorc clicked");
+document.getElementById("botaoCE").onclick = () => {
+  Entrada.innerText = "";
 };
-
-botaoCE.onclick = () => {
-  display.innerText = "";
-  console.log("botaoCE clicked");
+document.getElementById("botaoC").onclick = () => {
+  Entrada.innerText = "";
+  Display.innerText = "";
 };
-
-botaoC.onclick = () => {
-  display.innerText = "";
-  entrada.innerText = "";
-  console.log("botaoC clicked");
+document.getElementById("botaoIgual").onclick = () => {
+  Display.innerText += Entrada.innerText;
+  let resultado = eval(Display.innerText);
+  console.log(resultado);
+  Display.innerText = "";
+  Entrada.innerText = resultado;
 };
-
-botaoApagar.onclick = () => {
-  display.innerText.slice(0, -1);
-  console.log("botaoApagar clicked");
-};
-
-botao7.onclick = () => {
-  display.innerText += "7";
-  console.log("botao7 clicked");
-};
-
-botao8.onclick = () => {
-  display.innerText += "8";
-  console.log("botao8 clicked");
-};
-
-botao9.onclick = () => {
-  display.innerText += "9";
-  console.log("botao9 clicked");
-};
-
-botaoMulti.onclick = () => {
-  entrada.innerText += display.innerText + "*";
-  display.innerText = "";
-  console.log("botaoMulti clicked");
-};
-
-botao14.onclick = () => {
-  display.innerText += "4";
-  console.log("botao4 clicked");
-};
-
-botao15.onclick = () => {
-  display.innerText += "5";
-  console.log("botao5 clicked");
-};
-
-botao16.onclick = () => {
-  display.innerText += "6";
-  console.log("botao6 clicked");
-};
-
-botaoMenos.onclick = () => {
-  entrada.innerText += display.innerText + "-";
-  display.innerText = "";
-  console.log("botaoMenos clicked");
-};
-
-botao1.onclick = () => {
-  display.innerText += "1";
-  console.log("botao1 clicked");
-};
-
-botao2.onclick = () => {
-  display.innerText += "2";
-  console.log("botao2 clicked");
-};
-
-botao3.onclick = () => {
-  display.innerText += "3";
-  console.log("botao3 clicked");
-};
-
-botaoSoma.onclick = () => {
-  entrada.innerText += display.innerText + "+";
-  display.innerText = "";
-  console.log("botaoSoma clicked");
-};
-
-botaoSinais.onclick = () => {
-  console.log("botaoSinais clicked");
-};
-
-botao0.onclick = () => {
-  display.innerText += "0";
-  console.log("botao0 clicked");
-};
-
-botaoVirg.onclick = () => {
-  if (!display.innerText.includes(".")) {
-    display.innerText += ".";
-  }
-  console.log("botaoVirg clicked");
-};
-botaoIgual.onclick = () => {
-  entrada.innerText += display.innerText;
-  let resultado = eval(entrada.innerText);
-  entrada.innerText = "";
-  display.innerText = resultado;
-  console.log("botaoSoma Igual");
+document.getElementById("botaoApagar").onclick = () => {
+  Entrada.innerText = Entrada.innerText.slice(0, -1);
 };
