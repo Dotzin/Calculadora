@@ -26,22 +26,23 @@ botao1.onclick = () => {
   console.log("botao1 clicked");
 };
 botaoPorc.onclick = () => {
-  display.innerText += "%";
+  display.innerText = display.innerText / 100;
   console.log("botaoPorc clicked");
 };
 
 botaoCE.onclick = () => {
-  display.innerText = display.innerText.slice(0, -1);
+  display.innerText = "";
   console.log("botaoCE clicked");
 };
 
 botaoC.onclick = () => {
   display.innerText = "";
+  entrada.innerText = "";
   console.log("botaoC clicked");
 };
 
 botaoApagar.onclick = () => {
-  display.innerText = display.innerText.slice(0, -1);
+  display.innerText.slice(0, -1);
   console.log("botaoApagar clicked");
 };
 
