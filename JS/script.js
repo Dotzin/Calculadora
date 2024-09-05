@@ -38,8 +38,7 @@ document.getElementById("botaoIgual").onclick = () => {
   Entrada.innerText = resultado;
 };
 document.getElementById("botaoOnePer").onclick = () => {
-  Display.innerText = `1/(${Entrada.innerText})`;
-  Entrada.innerText = 1 / Entrada.innerText;
+  Entrada.innerText = `1/(${Entrada.innerText})`;
 };
 document.getElementById("botaoRad").onclick = () => {
   Entrada.innerText = Entrada.innerText * Entrada.innerText;
