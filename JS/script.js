@@ -37,6 +37,16 @@ document.getElementById("botaoIgual").onclick = () => {
   Display.innerText = "";
   Entrada.innerText = resultado;
 };
+document.getElementById("botaoOnePer").onclick = () => {
+  Display.innerText = `1/(${Entrada.innerText})`;
+  Entrada.innerText = 1 / Entrada.innerText;
+};
+document.getElementById("botaoRad").onclick = () => {
+  Entrada.innerText = Entrada.innerText * Entrada.innerText;
+};
+document.getElementById("botaoSqrt").onclick = () => {
+  Entrada.innerText = Math.sqrt(Entrada.innerText);
+};
 document.getElementById("botaoApagar").onclick = () => {
   Entrada.innerText = Entrada.innerText.slice(0, -1);
 };
